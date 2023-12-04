@@ -7,20 +7,24 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
+// A anotação @JsonIgnoreProperties(ignoreUnknown = true) indica que propriedades desconhecidas
+// devem ser ignoradas ao desserializar o objeto JSON para esta classe.
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Character {
 
-    private long id;
-    private String name;
-    private List<String> images;
-    private Debut debut;
-    private List<String> jutsu;
-    private List<String> natureType;
+    // Declaração de variáveis de instância para armazenar os dados do personagem.
+    private  List<String> characters;
+    private long id; // Identificador único do personagem.
+    private String name; // Nome do personagem.
+    private List<String> images; // Lista de URLs de imagens do personagem.
+    private Debut debut; // Objeto representando a estreia do personagem.
+    private List<String> jutsu; // Lista de habilidades especiais do personagem.
+    private List<String> natureType; // Lista de tipos de natureza do chakra do personagem.
 
-    private Personal personal;
+    private Personal personal; // Objeto contendo informações pessoais do personagem.
 
-    private List<String> tools;
-    private VoiceActors voiceActors;
+    private List<String> tools; // Lista de ferramentas associadas ao personagem.
+    private VoiceActors voiceActors; // Objeto representando os dubladores do personagem.
 
     public VoiceActors getVoiceActors() {
         return voiceActors;
@@ -92,5 +96,13 @@ public class Character {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<String> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(List<String> characters) {
+        this.characters = characters;
     }
 }

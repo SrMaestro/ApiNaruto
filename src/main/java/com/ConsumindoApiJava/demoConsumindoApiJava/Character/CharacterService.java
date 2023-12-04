@@ -7,10 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// A anotação @Service indica que esta classe é um serviço e será gerenciada pelo Spring.
+
 @Service
 public class CharacterService {
     private final Map<Long, Character> characters = new HashMap<>();
     private long nextId = 1;
+
 
     public List<Character> getAllCharacters() {
         return new ArrayList<>(characters.values());

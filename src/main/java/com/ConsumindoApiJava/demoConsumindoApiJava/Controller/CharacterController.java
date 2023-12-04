@@ -15,10 +15,14 @@ public class CharacterController {
     @Autowired
     private CharacterService characterService;
 
+
+
+
+
     //==========================================================================
 
     // Endpoint para obter todos os personagens
-    @GetMapping("/character/{id}")
+    @GetMapping("/api/characters")
     public ResponseEntity<Character> getCharacterById(@PathVariable Long id) {
         Character character = characterService.getCharacterById(id);
         if (character != null) {
@@ -29,7 +33,7 @@ public class CharacterController {
 
     }
 
-    //     //Endpoint para adicionar um novo personagem
+         //Endpoint para adicionar um novo personagem
     @PostMapping
     public ResponseEntity<Character> addCharacter(@RequestBody Character character) {
         Character addedCharacter = characterService.addCharacter(character);
@@ -50,6 +54,8 @@ public class CharacterController {
     @GetMapping
     public ResponseEntity<List<Character>> getAllCharacters() {
         List<Character> characters = characterService.getAllCharacters();
+        String apiUrl = "https://narutodb.xyz/api/character/" ;
+
         return ResponseEntity.ok(characters);
     }
 
@@ -98,8 +104,10 @@ public class CharacterController {
             return ResponseEntity.status(response.getStatusCode()).build();
         }
 
-
-
     }
+
+
+
+
 
 }
